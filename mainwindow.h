@@ -30,6 +30,8 @@ private slots:
 
     void on_routine_clicked();
 
+    void on_dashboard_clicked();
+
 private:
     Ui::MainWindow *ui;
 
