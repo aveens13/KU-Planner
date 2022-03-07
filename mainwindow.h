@@ -1,8 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "dialog.h"
-#include "dashboard.h"
-#include "assignment.h"
+
 #include <QMainWindow>
 
 
@@ -22,10 +20,18 @@ private slots:
 
     void on_getstarted_clicked();
 
+    void on_calendar_clicked();
+
+    void on_quiz_clicked();
+
+    void on_assignments_clicked();
+
+    void on_exams_clicked();
+
+    void on_routine_clicked();
+
 private:
     Ui::MainWindow *ui;
-    Dialog *secdialog;
-    Dashboard *dashboard;
 
 };
 #endif // MAINWINDOW_H
