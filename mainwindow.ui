@@ -143,7 +143,10 @@ border-radius:15px;</string>
        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0">
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
-          <widget class="QWidget" name="mianwindow">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="mainwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
             <item>
              <widget class="QLabel" name="label">
@@ -218,7 +221,45 @@ font: 700 10pt &quot;Calibri&quot;;</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="dashboard"/>
+          <widget class="QWidget" name="dashboard">
+           <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,6">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Dashboard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Sunday</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>February 28</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9"/>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
