@@ -143,6 +143,9 @@ border-radius:15px;</string>
        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0">
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
           <widget class="QWidget" name="mianwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
             <item>

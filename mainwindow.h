@@ -18,19 +18,7 @@ public:
 
 private slots:
 
-    void on_getstarted_clicked();
-
-    void on_calendar_clicked();
-
-    void on_quiz_clicked();
-
-    void on_assignments_clicked();
-
-    void on_exams_clicked();
-
-    void on_routine_clicked();
-
-    void on_dashboard_clicked();
+    void on_getStarted_clicked();
 
 private:
     Ui::MainWindow *ui;
