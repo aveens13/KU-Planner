@@ -24,6 +24,8 @@ private slots:
 
     void on_calendar_2_clicked();
 
+    void on_assignments_clicked();
+
 private:
     Ui::MainWindow *ui;
 
