@@ -400,7 +400,7 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                  <item>
                   <widget class="QPushButton" name="pushButton">
                    <property name="text">
-                    <string>Assignments</string>
+                    <string>assignments 2</string>
                    </property>
                   </widget>
                  </item>
