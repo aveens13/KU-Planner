@@ -20,6 +20,10 @@ private slots:
 
     void on_getStarted_clicked();
 
+    void on_dashBoard_clicked();
+
+    void on_calendar_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
