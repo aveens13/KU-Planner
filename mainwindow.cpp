@@ -34,3 +34,10 @@ void MainWindow::on_calendar_2_clicked()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+
+void MainWindow::on_assignments_clicked()
+{
+    ui->groupBox->show();
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
