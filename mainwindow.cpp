@@ -41,3 +41,17 @@ void MainWindow::on_assignments_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
+
+void MainWindow::on_exams_clicked()
+{
+    ui->groupBox->show();
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_routine_clicked()
+{
+    ui->groupBox->show();
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
