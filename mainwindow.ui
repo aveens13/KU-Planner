@@ -166,7 +166,7 @@ border-radius:15px;</string>
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
-           <number>3</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="mainwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
@@ -401,6 +401,118 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                   <widget class="QPushButton" name="pushButton">
                    <property name="text">
                     <string>assignments 2</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Exams">
+           <layout class="QVBoxLayout" name="verticalLayout_19" stretch="1,10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,6">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Exams</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_20">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Sunday</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>February 28</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_18">
+              <item>
+               <widget class="QGroupBox" name="groupBox_5">
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_21">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_2">
+                   <property name="text">
+                    <string>Exams</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Routine">
+           <layout class="QVBoxLayout" name="verticalLayout_23" stretch="1,10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="2,6">
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Routine</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_24">
+                <item>
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>Sunday</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>February 28</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_22">
+              <item>
+               <widget class="QGroupBox" name="groupBox_6">
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_25">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_3">
+                   <property name="text">
+                    <string>Routine</string>
                    </property>
                   </widget>
                  </item>
