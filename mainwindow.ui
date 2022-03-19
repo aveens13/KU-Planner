@@ -126,7 +126,7 @@ border-radius:15px;</string>
            <item>
             <widget class="QPushButton" name="quiz">
              <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
+              <cursorShape>SplitVCursor</cursorShape>
              </property>
              <property name="text">
               <string>Quiz</string>
@@ -429,6 +429,19 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                         <widget class="QDateTimeEdit" name="dateTimeEdit"/>
                        </item>
                       </layout>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="submitButton">
+                       <property name="styleSheet">
+                        <string notr="true">border-radius:10px;
+padding:15px;
+margin:5px;
+font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>Submit</string>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
