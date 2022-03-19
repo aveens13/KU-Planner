@@ -26,6 +26,14 @@ private slots:
 
     void on_assignments_clicked();
 
+    void on_exams_clicked();
+
+    void on_routine_clicked();
+
+    void on_addTask_clicked();
+
+    void on_continueButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
