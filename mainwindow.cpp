@@ -25,6 +25,7 @@ void MainWindow::on_addTask_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget_2->setCurrentIndex(0);
 }
 
 
@@ -65,7 +66,10 @@ void MainWindow::on_routine_clicked()
 
 void MainWindow::on_continueButton_clicked()
 {
-    if(ui->checkBox->isChecked()){
+    if(ui->checkBox->isChecked() && ui->checkBox_2->isChecked()){
+        ui->errorAdd->setText("Error: Both are checked, please check only one");
+    }
+    else if(ui->checkBox->isChecked()){
         ui->stackedWidget_2->setCurrentIndex(1);
     }
     else if(ui->checkBox_2->isChecked()){
