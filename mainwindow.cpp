@@ -17,6 +17,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_getStarted_clicked()
 {
     ui->groupBox->show();
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_addTask_clicked()
+{
+    ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -24,34 +31,48 @@ void MainWindow::on_getStarted_clicked()
 void MainWindow::on_dashBoard_clicked()
 {
     ui->groupBox->show();
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_calendar_2_clicked()
 {
     ui->groupBox->show();
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 
 void MainWindow::on_assignments_clicked()
 {
     ui->groupBox->show();
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 
 void MainWindow::on_exams_clicked()
 {
     ui->groupBox->show();
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 
 void MainWindow::on_routine_clicked()
 {
     ui->groupBox->show();
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+
+void MainWindow::on_continueButton_clicked()
+{
+    if(ui->checkBox->isChecked()){
+        ui->stackedWidget_2->setCurrentIndex(1);
+    }
+    else if(ui->checkBox_2->isChecked()){
+        ui->stackedWidget_2->setCurrentIndex(2);
+    }
+    else if(!ui->checkBox->isChecked() && !ui->checkBox_2->isChecked()){
+        ui->errorAdd->setText("Error: At least check one box");
+    }
 }
 

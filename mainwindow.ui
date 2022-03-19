@@ -166,7 +166,7 @@ border-radius:15px;</string>
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
-           <number>5</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="mainwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
@@ -240,6 +240,215 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                </spacer>
               </item>
              </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="add_a_task">
+           <layout class="QVBoxLayout" name="verticalLayout_26" stretch="1,10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="2,6">
+              <item>
+               <widget class="QLabel" name="label_17">
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Add a Task</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_28" stretch="0,0">
+                <item>
+                 <widget class="QLabel" name="label_18">
+                  <property name="text">
+                   <string>Sunday</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_19">
+                  <property name="text">
+                   <string>February 28</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_7">
+              <property name="title">
+               <string/>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_27" stretch="0,2,2,10">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_10"/>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="2,1,2,2">
+                 <item>
+                  <widget class="QLabel" name="label_20">
+                   <property name="styleSheet">
+                    <string notr="true">font: 350 12pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>Select the type of your task</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox">
+                   <property name="styleSheet">
+                    <string notr="true">font: 350 10pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>Assignment</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_2">
+                   <property name="styleSheet">
+                    <string notr="true">font: 350 10pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>Exam</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <widget class="QStackedWidget" name="stackedWidget_2">
+                   <widget class="QWidget" name="continue_2">
+                    <layout class="QVBoxLayout" name="verticalLayout_31" stretch="0,0">
+                     <item>
+                      <widget class="QLabel" name="errorAdd">
+                       <property name="styleSheet">
+                        <string notr="true">font: 350 12pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="continueButton">
+                       <property name="styleSheet">
+                        <string notr="true">border-radius:10px;
+padding:15px;
+margin:30px;
+font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>Continue</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="forAssignment">
+                    <layout class="QVBoxLayout" name="verticalLayout_30">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="2,6">
+                       <item>
+                        <widget class="QLabel" name="label_21">
+                         <property name="styleSheet">
+                          <string notr="true">font: 350 12pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                         </property>
+                         <property name="text">
+                          <string>Title</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEdit"/>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,6">
+                       <item>
+                        <widget class="QLabel" name="label_22">
+                         <property name="styleSheet">
+                          <string notr="true">font: 350 12pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                         </property>
+                         <property name="text">
+                          <string>Description</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEdit_2"/>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="2,6">
+                       <item>
+                        <widget class="QLabel" name="label_23">
+                         <property name="styleSheet">
+                          <string notr="true">font: 350 12pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                         </property>
+                         <property name="text">
+                          <string>Deadline</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="forExam">
+                    <layout class="QVBoxLayout" name="verticalLayout_32">
+                     <item>
+                      <widget class="QPushButton" name="pushButton_5">
+                       <property name="text">
+                        <string>exam</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
             </item>
            </layout>
           </widget>
