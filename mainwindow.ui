@@ -166,7 +166,7 @@ border-radius:15px;</string>
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="mainwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
@@ -392,7 +392,17 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLineEdit" name="lineEdit"/>
+                        <widget class="QLineEdit" name="lineEdit">
+                         <property name="styleSheet">
+                          <string notr="true">border: 2px solid gray;
+padding: 0 8px;
+margin:20px;
+font-size: 16px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </item>
@@ -409,7 +419,17 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLineEdit" name="lineEdit_2"/>
+                        <widget class="QLineEdit" name="lineEdit_2">
+                         <property name="styleSheet">
+                          <string notr="true">border: 2px solid gray;
+padding: 0 8px;
+margin:20px;
+font-size: 16px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </item>
@@ -426,7 +446,17 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+                        <widget class="QDateTimeEdit" name="dateTimeEdit">
+                         <property name="styleSheet">
+                          <string notr="true">border: 2px solid gray;
+padding: 0 8px;
+margin:20px;
+font-size: 14px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
                        </item>
                       </layout>
                      </item>
