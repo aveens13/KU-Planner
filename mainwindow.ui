@@ -166,7 +166,7 @@ border-radius:15px;</string>
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="mainwindow">
            <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
@@ -282,7 +282,7 @@ font: 700 10pt &quot;Calibri&quot;;</string>
               <property name="title">
                <string/>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_27" stretch="0,2,2,10">
+              <layout class="QVBoxLayout" name="verticalLayout_27" stretch="0,1,2,10">
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_10"/>
                </item>

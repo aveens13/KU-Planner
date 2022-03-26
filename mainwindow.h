@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE
@@ -38,4 +41,5 @@ private:
     Ui::MainWindow *ui;
 
 };
+
 #endif // MAINWINDOW_H
