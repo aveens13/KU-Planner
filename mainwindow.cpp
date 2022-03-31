@@ -7,24 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
-    db.setDatabaseName("C:/Users/bhatt/OneDrive/Desktop/KU-Planner/mydb.sqlite");
-    if(!db.open()){
-        qDebug("Unable to connect...");
-    }
-    else{
-        qDebug("Connected Sunccessfully!!!");
-    }
-    QSqlQuery databaseQuery(db);
-    databaseQuery.prepare("CREATE TABLE IF NOT EXISTS Assignment (id int not null primary key, title text, description text, deadline text)");
-    if(!databaseQuery.exec()){
-        qDebug("Cannot execute the query..");
-        return;
-    }
-    else{
-        qDebug("Done Successfully!!!");
-    }
 
     ui->setupUi(this);
     ui->groupBox->hide();
@@ -37,7 +19,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_getStarted_clicked()
 {
-
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
 }
