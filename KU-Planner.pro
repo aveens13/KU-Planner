@@ -10,7 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    sqlite.cpp
 
 HEADERS += \
     mainwindow.h \
