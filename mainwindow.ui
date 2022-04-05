@@ -462,6 +462,9 @@ background-color:rgb(192, 192, 255);}</string>
                      </item>
                      <item>
                       <widget class="QPushButton" name="submitButton">
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">border-radius:10px;
 padding:15px;
@@ -552,6 +555,9 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
            </layout>
           </widget>
           <widget class="QWidget" name="calendar">
+           <property name="styleSheet">
+            <string notr="true">color:black;</string>
+           </property>
            <layout class="QVBoxLayout" name="verticalLayout_14" stretch="1,10">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,6">
@@ -594,11 +600,7 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_16">
                  <item>
-                  <widget class="QPushButton" name="pushButton_8">
-                   <property name="text">
-                    <string>Calendar</string>
-                   </property>
-                  </widget>
+                  <widget class="QCalendarWidget" name="calendarWidget"/>
                  </item>
                 </layout>
                </widget>
