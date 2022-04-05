@@ -5,12 +5,15 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QMessageBox>
-
+#include <QDateTime>
+#include <QDate>
+#include <stdexcept>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+//void assignment_database(QSqlDatabase& db);
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -37,8 +40,12 @@ private slots:
 
     void on_continueButton_clicked();
 
+    void on_submitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QDate *date;
+    QString day;
 
 };
 

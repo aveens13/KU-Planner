@@ -2,5 +2,7 @@
 #define SQLITE_H
 #include <QtSql>
 #include <QSqlDatabase>
-void run_database(QSqlDatabase& db);
+#include <stdexcept>
+void run_assignment_database(QSqlDatabase& db);
+void assignment_database(QSqlDatabase& db);
 #endif // SQLITE_H
