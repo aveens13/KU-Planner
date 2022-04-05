@@ -88,7 +88,8 @@ void MainWindow::on_continueButton_clicked()
 void MainWindow::on_submitButton_clicked()
 {
      QString title;
-     QString description;
+     QString description,dd1;
+     QDateTime deadline;
     QSqlDatabase *db = new  QSqlDatabase;
     *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
     db->setDatabaseName("assignment.sqlite");
@@ -97,6 +98,9 @@ void MainWindow::on_submitButton_clicked()
     qDebug()<<title;
     description = ui->lineEdit_2->text();
     qDebug()<<description;
+    deadline = ui->dateTimeEdit->dateTime();
+    qDebug()<<deadline.toString();
+    dd1 = deadline.toString();
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->errorAdd->setText("Success: Added The Assignment...");
     if(title == "" || description == "") throw invalid_argument("Cannot Perform the tasks");
@@ -106,5 +110,5 @@ void MainWindow::on_submitButton_clicked()
         ui->errorAdd->setText("Error: Cannot add the Tasks... ");
     }
     run_assignment_database(*db);
-    assignment_database(*db);
+    assignment_database(*db,title,description,dd1);
 }
