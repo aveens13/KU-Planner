@@ -9,6 +9,8 @@
 #include <QDate>
 #include <stdexcept>
 
+#include "eventsdialog.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,8 +44,11 @@ private slots:
 
     void on_submitButton_clicked();
 
+    void on_calendarWidget_clicked(const QDate &date);
+
 private:
     Ui::MainWindow *ui;
+    eventsdialog *eventdialog;
     QDate *date;
     QString day;
 

@@ -2,7 +2,10 @@
 #include "sqlite.h"
 #include<iostream>
 using namespace std;
+
 #include "ui_mainwindow.h"
+#include "eventsdialog.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -82,6 +85,13 @@ void MainWindow::on_continueButton_clicked()
     else if(!ui->checkBox->isChecked() && !ui->checkBox_2->isChecked()){
         ui->errorAdd->setText("Error: At least check one box");
     }
+}
+
+void MainWindow::on_calendarWidget_clicked(const QDate &date)
+{
+    eventdialog = new eventsdialog(this);
+    eventdialog->show();
+    eventdialog->setWindowTitle(date.toString());
 }
 
 
