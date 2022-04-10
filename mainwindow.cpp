@@ -54,6 +54,11 @@ void MainWindow::on_assignments_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(4);
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db->setDatabaseName("assignment.sqlite");
+    QVBoxLayout* vertical_layout = new QVBoxLayout(ui->scrollAreaWidgetContents);
+    fetch_assignment(*db,*ui,*vertical_layout);
 }
 
 

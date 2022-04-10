@@ -24,8 +24,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-	background: black;
-	color: white;
+	background: white;
+	color: black;
 }</string>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -45,9 +45,9 @@
        </property>
        <property name="styleSheet">
         <string notr="true">QComboBox {
-	background: rgb(38,38,38);
+	background: white;
 	height: 30 px;
-	selection-background-color: rgb(38,38,38);
+	selection-background-color: rgb(181, 145, 212);
 }
 
 QComboBox QMenu {
