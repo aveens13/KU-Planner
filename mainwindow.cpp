@@ -57,7 +57,10 @@ void MainWindow::on_assignments_clicked()
     QSqlDatabase *db = new  QSqlDatabase;
     *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
     db->setDatabaseName("assignment.sqlite");
-    QVBoxLayout* vertical_layout = new QVBoxLayout(ui->scrollAreaWidgetContents);
+    QWidget *central = new QWidget;
+    QVBoxLayout* vertical_layout = new QVBoxLayout(central);
+    ui->scrollArea->setWidget(central);
+    ui->scrollArea->setWidgetResizable(true);
     fetch_assignment(*db,*ui,*vertical_layout);
 }
 

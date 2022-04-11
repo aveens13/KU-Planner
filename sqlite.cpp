@@ -87,14 +87,20 @@ void fetch_assignment(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout)
     QSqlQuery *databaseQuery = new QSqlQuery(db);
     databaseQuery->exec("SELECT * FROM ASSIGNMENT");
     int sn_assignment = 1;
+    ui.scrollArea->setWidgetResizable(true);
+    ui.scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui.scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     while(databaseQuery->next()){
+        QCheckBox *checkbox_done = new QCheckBox("Completed");
         QWidget *widget_assignment = new QWidget;
         QHBoxLayout* h_layout = new QHBoxLayout(widget_assignment);
+        widget_assignment->setMaximumHeight(150);
+        widget_assignment->setMinimumHeight(100);
+//        widget_assignment->setStyleSheet("background-color:#B3B3B3");
         QLabel *sn = new QLabel;
         QLabel *label_title_assignment = new QLabel;
         QLabel *label_description_assignment = new QLabel;
         QLabel *label_deadline_assignment = new QLabel;
-        QCheckBox *checkbox_done = new QCheckBox("Completed");
         QString  sn_str = QString::number(sn_assignment) + ".";
         sn->setText(sn_str);
         label_title_assignment->setText(databaseQuery->value(1).toString());
@@ -112,5 +118,10 @@ void fetch_assignment(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout)
         qDebug()<<"Assignment Title: "<<title_print;
         sn_assignment +=1;
     }
+    QPushButton *refresh = new QPushButton("Refresh");
+//    refresh->set
+    v_layout.addWidget(refresh);
+//    delete checkbox_done;
+//    delete refresh;
     db.close();
 }

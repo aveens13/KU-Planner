@@ -715,6 +715,46 @@ QCalendarWidget QSpinBox {
              <layout class="QVBoxLayout" name="verticalLayout_10">
               <item>
                <widget class="QScrollArea" name="scrollArea">
+                <property name="styleSheet">
+                 <string notr="true">QScrollBar::vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+	width:14px;
+	margin:15px 0 15px 0;
+}
+QScrollBar::handle:vertical{
+	background-color: rgb(181, 145, 212);
+	min-height:30px;
+	border-radius:7px;
+}
+QScrollBar::handle:vertical:hover{
+	background-color: rgb(123, 98, 144);
+}
+
+QScrollBar::handle:vertical:pressed{
+	background-color: rgb(70, 70, 70);
+}
+QScrollBar::sub-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:15px;
+border-top-left-radius: 7px;
+border-top-right-radius:7px;
+subcontrol-position:top;
+subcontrol-origin:margin;
+}
+
+QScrollBar::add-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius:7px;
+subcontrol-position:bottom;
+subcontrol-origin:margin;
+}
+</string>
+                </property>
                 <property name="widgetResizable">
                  <bool>true</bool>
                 </property>
@@ -726,6 +766,9 @@ QCalendarWidget QSpinBox {
                    <width>659</width>
                    <height>480</height>
                   </rect>
+                 </property>
+                 <property name="mouseTracking">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </widget>
