@@ -8,6 +8,7 @@
 #include <QDateTime>
 #include <QDate>
 #include <stdexcept>
+#include <QFileDialog>
 
 #include "eventsdialog.h"
 
@@ -46,11 +47,16 @@ private slots:
 
     void on_calendarWidget_clicked(const QDate &date);
 
+    void on_reminders_submit_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
     eventsdialog *eventdialog;
     QDate *date;
     QString day;
+    QString mResourceDir;
 
 };
 

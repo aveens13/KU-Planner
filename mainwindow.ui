@@ -303,7 +303,7 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="2,1,2,2">
+                <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="2,0,2,2,2,0">
                  <item>
                   <widget class="QLabel" name="label_20">
                    <property name="styleSheet">
@@ -343,9 +343,29 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                     <string notr="true">font: 350 10pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                    </property>
                    <property name="text">
+                    <string>Reminders</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_3">
+                   <property name="text">
                     <string>Exam</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                 </layout>
                </item>
@@ -481,12 +501,120 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                      </item>
                     </layout>
                    </widget>
-                   <widget class="QWidget" name="forExam">
-                    <layout class="QVBoxLayout" name="verticalLayout_32">
+                   <widget class="QWidget" name="forReminders">
+                    <layout class="QVBoxLayout" name="verticalLayout_32" stretch="1,2,1">
                      <item>
-                      <widget class="QPushButton" name="pushButton_5">
+                      <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="0,2,1">
+                       <item>
+                        <widget class="QLabel" name="label_24">
+                         <property name="text">
+                          <string>Remind me to </string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEdit_3">
+                         <property name="styleSheet">
+                          <string notr="true">border:2px solid rgb(181, 145, 212);
+padding: 0 8px;
+margin:20px;
+font-size: 16px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QDateEdit" name="dateEdit">
+                         <property name="styleSheet">
+                          <string notr="true">border: 2px solid rgb(181, 145, 212);
+padding: 0 8px;
+margin:20px;
+font-size: 14px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_15">
+                       <item>
+                        <widget class="QLabel" name="label_25">
+                         <property name="text">
+                          <string>About</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QTextEdit" name="textEdit">
+                         <property name="styleSheet">
+                          <string notr="true">border:2px solid rgb(181, 145, 212);
+padding: 0 8px;
+margin:20px;
+font-size: 16px;
+border-radius: 10px;
+focus {
+background-color:rgb(192, 192, 255);}</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="2,1,2">
+                       <item>
+                        <spacer name="horizontalSpacer_5">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="reminders_submit">
+                         <property name="styleSheet">
+                          <string notr="true">border-radius:10px;
+padding:15px;
+margin:5px;
+font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
+                         </property>
+                         <property name="text">
+                          <string>Submit</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_6">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="forExam">
+                    <layout class="QVBoxLayout" name="verticalLayout_17">
+                     <item>
+                      <widget class="QPushButton" name="pushButton">
                        <property name="text">
-                        <string>exam</string>
+                        <string>Exam</string>
                        </property>
                       </widget>
                      </item>
@@ -544,11 +672,56 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
-                  <widget class="QPushButton" name="pushButton_6">
-                   <property name="text">
-                    <string>Dashboard</string>
-                   </property>
-                  </widget>
+                  <layout class="QVBoxLayout" name="verticalLayout_33">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_17">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_22">
+                       <item>
+                        <widget class="QPushButton" name="pushButton_3">
+                         <property name="text">
+                          <string>PushButton</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_24">
+                       <item>
+                        <widget class="QPushButton" name="pushButton_4">
+                         <property name="text">
+                          <string>PushButton</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_34">
+                   <item>
+                    <widget class="QPushButton" name="pushButton_5">
+                     <property name="text">
+                      <string>PushButton</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_35">
+                   <item>
+                    <widget class="QPushButton" name="pushButton_6">
+                     <property name="text">
+                      <string>PushButton</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                 </layout>
                </widget>
@@ -763,8 +936,8 @@ subcontrol-origin:margin;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>659</width>
-                   <height>480</height>
+                   <width>57</width>
+                   <height>16</height>
                   </rect>
                  </property>
                  <property name="mouseTracking">
@@ -876,10 +1049,31 @@ subcontrol-origin:margin;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_25">
                  <item>
-                  <widget class="QPushButton" name="pushButton_3">
-                   <property name="text">
-                    <string>Routine</string>
-                   </property>
+                  <widget class="QComboBox" name="comboBox">
+                   <item>
+                    <property name="text">
+                     <string>CS I / II</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>CS I/I</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>EE I/I</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_18">
+                    <item>
+                     <widget class="QGraphicsView" name="graphicsView"/>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
