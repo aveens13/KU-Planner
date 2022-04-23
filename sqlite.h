@@ -8,4 +8,5 @@
 void run_assignment_database(QSqlDatabase&);
 void assignment_database(QSqlDatabase&,QString, QString, QString);
 void fetch_assignment(QSqlDatabase&,Ui::MainWindow&,QVBoxLayout&);
+void add_reminders(QSqlDatabase&,QString, QString, QDate);
 #endif // SQLITE_H
