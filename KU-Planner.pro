@@ -10,12 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     eventsdialog.cpp \
+    examCombo.cpp \
     main.cpp \
     mainwindow.cpp \
     sqlite.cpp
 
 HEADERS += \
     eventsdialog.h \
+    examCombo.h \
     mainwindow.h \
     sqlite.h
 

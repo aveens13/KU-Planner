@@ -44,11 +44,12 @@ border:none;
 	background-color: rgb(181, 145, 212);
 }
 QPushButton{
+	font: 13pt &quot;Monotype Corsiva&quot;;
 padding: 10px 5px;
 margin: 10px;
 background:transparent;
 border:none;
-font-size: 16px ;
+font-size: 20px ;
 color:black;
 }
 
@@ -67,7 +68,7 @@ color:white;
           <property name="title">
            <string/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0,0,0">
+          <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0,2,1,0">
            <item>
             <widget class="QPushButton" name="addTask">
              <property name="cursor">
@@ -127,16 +128,6 @@ border-radius:15px;</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="quiz">
-             <property name="cursor">
-              <cursorShape>SplitVCursor</cursorShape>
-             </property>
-             <property name="text">
-              <string>Quiz</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QPushButton" name="routine">
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
@@ -159,6 +150,76 @@ border-radius:15px;</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <item>
+              <spacer name="horizontalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:white;
+border-radius:22px;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>profile.png</normaloff>profile.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_27">
+             <property name="styleSheet">
+              <string notr="true">font: 9pt &quot;Monotype Corsiva&quot;;
+padding: 0px 1px;
+margin: 10px;
+color:black;</string>
+             </property>
+             <property name="text">
+              <string>KU Planner - Version 1.0.1</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -172,11 +233,11 @@ border-radius:15px;</string>
            <number>0</number>
           </property>
           <widget class="QWidget" name="mainwindow">
-           <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,3,1,1">
+           <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,0,1,1">
             <item>
              <widget class="QLabel" name="label">
               <property name="styleSheet">
-               <string notr="true">font: 700 26pt &quot;Calibri&quot;;</string>
+               <string notr="true">font: italic 26pt &quot;Monotype Corsiva&quot;;</string>
               </property>
               <property name="text">
                <string>Welcome to KU-Planner</string>
@@ -184,7 +245,20 @@ border-radius:15px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QTextBrowser" name="textBrowser"/>
+             <widget class="QTextBrowser" name="textBrowser">
+              <property name="styleSheet">
+               <string notr="true">font: italic 16pt &quot;Monotype Corsiva&quot;;
+border:none;
+background:transparent;</string>
+              </property>
+              <property name="html">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Monotype Corsiva'; font-size:16pt; font-weight:400; font-style:italic;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:normal;&quot;&gt;KU Planner helps you organize you assignments, exams in a productive manner. We have a built in Calendar to keep you up to date with your assignments and tasks. You can even add a reminder so that you will know what are your remaining task in the Dashboard section.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="verticalSpacer_2">
@@ -265,14 +339,14 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                 <item>
                  <widget class="QLabel" name="label_18">
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_19">
                   <property name="text">
-                   <string>February 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -612,10 +686,162 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                    <widget class="QWidget" name="forExam">
                     <layout class="QVBoxLayout" name="verticalLayout_17">
                      <item>
-                      <widget class="QPushButton" name="pushButton">
-                       <property name="text">
-                        <string>Exam</string>
+                      <widget class="QComboBox" name="comboBox_2">
+                       <property name="styleSheet">
+                        <string notr="true">border-radius:8px;</string>
                        </property>
+                       <item>
+                        <property name="text">
+                         <string>Choose a Subject</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Physics</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Chemistry</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Math</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Programming</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Engineering Drawing</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Enviromental Engineering</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QWidget" name="widget_2" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_36" stretch="1,3,1,1,3,3">
+                        <item>
+                         <spacer name="verticalSpacer_5">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QComboBox" name="comboBox_3">
+                          <property name="styleSheet">
+                           <string notr="true">border-radius:5px;</string>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>Choose Course</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_4">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_19">
+                          <item>
+                           <widget class="QLabel" name="label_26">
+                            <property name="text">
+                             <string>Choose Date </string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QDateEdit" name="dateEdit_2">
+                            <property name="styleSheet">
+                             <string notr="true">border-radius:5px;</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_6">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,1,1">
+                          <item>
+                           <spacer name="horizontalSpacer_7">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="submitExam">
+                            <property name="styleSheet">
+                             <string notr="true">padding:15px 5px;
+border-radius:10px;
+font: 700 10pt &quot;Calibri&quot;;</string>
+                            </property>
+                            <property name="text">
+                             <string>Submit</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_8">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                     </layout>
@@ -648,14 +874,14 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                 <item>
                  <widget class="QLabel" name="label_3">
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_4">
                   <property name="text">
-                   <string>February 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -752,14 +978,14 @@ font: 350 11pt &quot;Bahnschrift SemiLight SemiConde&quot;;</string>
                 <item>
                  <widget class="QLabel" name="label_9">
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_10">
                   <property name="text">
-                   <string>Febraury 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -868,15 +1094,21 @@ QCalendarWidget QSpinBox {
                <layout class="QVBoxLayout" name="verticalLayout_12">
                 <item>
                  <widget class="QLabel" name="label_6">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_7">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
                   <property name="text">
-                   <string>February 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -936,8 +1168,8 @@ subcontrol-origin:margin;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>57</width>
-                   <height>16</height>
+                   <width>658</width>
+                   <height>480</height>
                   </rect>
                  </property>
                  <property name="mouseTracking">
@@ -969,14 +1201,14 @@ subcontrol-origin:margin;
                 <item>
                  <widget class="QLabel" name="label_12">
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_13">
                   <property name="text">
-                   <string>February 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -987,19 +1219,60 @@ subcontrol-origin:margin;
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_18">
               <item>
-               <widget class="QGroupBox" name="groupBox_5">
-                <property name="title">
-                 <string/>
+               <widget class="QScrollArea" name="scrollArea_2">
+                <property name="styleSheet">
+                 <string notr="true">QScrollBar::vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+	width:14px;
+	margin:15px 0 15px 0;
+}
+QScrollBar::handle:vertical{
+	background-color: rgb(181, 145, 212);
+	min-height:30px;
+	border-radius:7px;
+}
+QScrollBar::handle:vertical:hover{
+	background-color: rgb(123, 98, 144);
+}
+
+QScrollBar::handle:vertical:pressed{
+	background-color: rgb(70, 70, 70);
+}
+QScrollBar::sub-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:15px;
+border-top-left-radius: 7px;
+border-top-right-radius:7px;
+subcontrol-position:top;
+subcontrol-origin:margin;
+}
+
+QScrollBar::add-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:15px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius:7px;
+subcontrol-position:bottom;
+subcontrol-origin:margin;
+}
+</string>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_21">
-                 <item>
-                  <widget class="QPushButton" name="pushButton_2">
-                   <property name="text">
-                    <string>Exams</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>658</width>
+                   <height>480</height>
+                  </rect>
+                 </property>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -1025,14 +1298,14 @@ subcontrol-origin:margin;
                 <item>
                  <widget class="QLabel" name="label_15">
                   <property name="text">
-                   <string>Sunday</string>
+                   <string>Monday</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QLabel" name="label_16">
                   <property name="text">
-                   <string>February 28</string>
+                   <string>April 25</string>
                   </property>
                  </widget>
                 </item>
@@ -1050,6 +1323,9 @@ subcontrol-origin:margin;
                 <layout class="QVBoxLayout" name="verticalLayout_25">
                  <item>
                   <widget class="QComboBox" name="comboBox">
+                   <property name="styleSheet">
+                    <string notr="true">border-radius:8px;</string>
+                   </property>
                    <item>
                     <property name="text">
                      <string>CS I / II</string>
@@ -1071,7 +1347,11 @@ subcontrol-origin:margin;
                   <widget class="QWidget" name="widget" native="true">
                    <layout class="QHBoxLayout" name="horizontalLayout_18">
                     <item>
-                     <widget class="QGraphicsView" name="graphicsView"/>
+                     <widget class="QGraphicsView" name="graphicsView">
+                      <property name="styleSheet">
+                       <string notr="true">border-radius:30px;</string>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </widget>
@@ -1080,6 +1360,168 @@ subcontrol-origin:margin;
                </widget>
               </item>
              </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="info">
+           <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QGroupBox" name="groupBox_3">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+
+font: 13pt &quot;Monotype Corsiva&quot;;
+padding: 10px 5px;
+margin: 10px;
+background:transparent;
+border:none;
+font-size: 20px ;
+color:black;
+}</string>
+              </property>
+              <property name="title">
+               <string/>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_37" stretch="1,1,1,1,2">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="1,1,3">
+                 <item>
+                  <widget class="QLabel" name="label_28">
+                   <property name="text">
+                    <string>Name:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_29">
+                   <property name="text">
+                    <string>John Miller</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_11">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="1,1,3">
+                 <item>
+                  <widget class="QLabel" name="label_30">
+                   <property name="text">
+                    <string>Group:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_31">
+                   <property name="text">
+                    <string>CS-2020</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_12">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,1,3">
+                 <item>
+                  <widget class="QLabel" name="label_32">
+                   <property name="text">
+                    <string>College:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_33">
+                   <property name="text">
+                    <string>Kathmandu University</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_13">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="1,1,3">
+                 <item>
+                  <widget class="QLabel" name="label_34">
+                   <property name="text">
+                    <string>Application right:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_35">
+                   <property name="text">
+                    <string>Under this machine</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_14">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_7">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
             </item>
            </layout>
           </widget>
