@@ -283,9 +283,43 @@ void write_exams(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout){
             sn_assignment +=1;
         }
         QPushButton *refresh = new QPushButton("Refresh");
-        refresh->setStyleSheet("padding:15px 5px;border-radius:10px;font: 700 12pt;");
+        refresh->setStyleSheet("padding:15px 5px;border-radius:20px;font: 700 12pt;");
         v_layout.addWidget(refresh);
     //    delete checkbox_done;
     //    delete refresh;
         db.close();
+}
+
+void fetch_reminders(QSqlDatabase& db,Ui::MainWindow& ui, QVBoxLayout& v_layout){
+    if(!db.open()){
+            qDebug("Unable to connect...");
+        }
+    else{
+            qDebug("Connected Sunccessfully to the reminders database!!!");
+            qDebug("Fetching the reminders Data...");
+        }
+    QSqlQuery *databaseQuery = new QSqlQuery(db);
+    databaseQuery->exec("SELECT * FROM Reminders");
+    ui.scrollArea_3->setWidgetResizable(true);
+    ui.scrollArea_3->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui.scrollArea_3->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    while(databaseQuery->next()){
+        QWidget* widget = new QWidget();
+        widget->setMaximumHeight(150);
+        widget->setMinimumHeight(100);
+        QVBoxLayout* vertical_l = new QVBoxLayout(widget);
+        QLabel* title = new QLabel();
+        QLabel* description = new QLabel();
+        title->setText(databaseQuery->value(1).toString());
+        title->setStyleSheet("font:12pt");
+        description->setText(databaseQuery->value(2).toString());
+        vertical_l->addWidget(title);
+        vertical_l->addWidget(description);
+        v_layout.addWidget(widget);
+        widget->setStyleSheet("background-color:#cfbbd4;border-radius:10px;");
+        int print_id = databaseQuery->value(0).toInt();
+        QString title_print = databaseQuery->value(1).toString();
+        qDebug()<<"ID of reminder: "<<print_id;
+        qDebug()<<"Reminder Title: "<<title_print;
+    }
 }

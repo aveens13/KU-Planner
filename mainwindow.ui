@@ -896,58 +896,84 @@ font: 700 10pt &quot;Calibri&quot;;</string>
                 <property name="title">
                  <string/>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_8">
+                <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="1,1,1">
                  <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_33">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_17">
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_22">
-                       <item>
-                        <widget class="QPushButton" name="pushButton_3">
-                         <property name="text">
-                          <string>PushButton</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_24">
-                       <item>
-                        <widget class="QPushButton" name="pushButton_4">
-                         <property name="text">
-                          <string>PushButton</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_34">
-                   <item>
-                    <widget class="QPushButton" name="pushButton_5">
-                     <property name="text">
-                      <string>PushButton</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QVBoxLayout" name="verticalLayout_33"/>
                  </item>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_35">
                    <item>
-                    <widget class="QPushButton" name="pushButton_6">
+                    <widget class="QLabel" name="label_36">
+                     <property name="styleSheet">
+                      <string notr="true">font: 12pt &quot;Arial&quot;;
+margin:5px;</string>
+                     </property>
                      <property name="text">
-                      <string>PushButton</string>
+                      <string>Reminders</string>
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <widget class="QScrollArea" name="scrollArea_3">
+                     <property name="styleSheet">
+                      <string notr="true">QScrollBar::vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+	width:6px;
+	margin:15px 0 15px 0;
+}
+QScrollBar::handle:vertical{
+	background-color: rgb(181, 145, 212);
+	min-height:15px;
+	border-radius:7px;
+}
+QScrollBar::handle:vertical:hover{
+	background-color: rgb(123, 98, 144);
+}
+
+QScrollBar::handle:vertical:pressed{
+	background-color: rgb(70, 70, 70);
+}
+QScrollBar::sub-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:7px;
+border-top-left-radius: 7px;
+border-top-right-radius:7px;
+subcontrol-position:top;
+subcontrol-origin:margin;
+}
+
+QScrollBar::add-line:vertical{
+	border:none;
+	background-color: rgb(184, 147, 216);
+height:7px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius:7px;
+subcontrol-position:bottom;
+subcontrol-origin:margin;
+}
+</string>
+                     </property>
+                     <property name="widgetResizable">
+                      <bool>true</bool>
+                     </property>
+                     <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>185</width>
+                        <height>407</height>
+                       </rect>
+                      </property>
+                     </widget>
+                    </widget>
+                   </item>
                   </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_38"/>
                  </item>
                 </layout>
                </widget>
@@ -1168,8 +1194,8 @@ subcontrol-origin:margin;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>658</width>
-                   <height>480</height>
+                   <width>57</width>
+                   <height>16</height>
                   </rect>
                  </property>
                  <property name="mouseTracking">
@@ -1268,7 +1294,7 @@ subcontrol-origin:margin;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>658</width>
+                   <width>607</width>
                    <height>480</height>
                   </rect>
                  </property>

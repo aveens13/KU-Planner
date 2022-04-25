@@ -26,6 +26,14 @@ void MainWindow::on_getStarted_clicked()
 //    ui->label_3->setText(day);
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE");
+    db->setDatabaseName("reminders1.sqlite");
+    QWidget *central = new QWidget;
+    QVBoxLayout* vertical_layout = new QVBoxLayout(central);
+    ui->scrollArea_3->setWidget(central);
+    ui->scrollArea_3->setWidgetResizable(true);
+    fetch_reminders(*db,*ui,*vertical_layout);
 }
 
 
@@ -42,6 +50,14 @@ void MainWindow::on_dashBoard_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE");
+    db->setDatabaseName("reminders1.sqlite");
+    QWidget *central = new QWidget;
+    QVBoxLayout* vertical_layout = new QVBoxLayout(central);
+    ui->scrollArea_3->setWidget(central);
+    ui->scrollArea_3->setWidgetResizable(true);
+    fetch_reminders(*db,*ui,*vertical_layout);
 }
 
 
