@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "sqlite.h"
+#include "examCombo.h"
 #include<iostream>
 using namespace std;
 
@@ -25,6 +26,14 @@ void MainWindow::on_getStarted_clicked()
 //    ui->label_3->setText(day);
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE");
+    db->setDatabaseName("reminders1.sqlite");
+    QWidget *central = new QWidget;
+    QVBoxLayout* vertical_layout = new QVBoxLayout(central);
+    ui->scrollArea_3->setWidget(central);
+    ui->scrollArea_3->setWidgetResizable(true);
+    fetch_reminders(*db,*ui,*vertical_layout);
 }
 
 
@@ -41,6 +50,14 @@ void MainWindow::on_dashBoard_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE");
+    db->setDatabaseName("reminders1.sqlite");
+    QWidget *central = new QWidget;
+    QVBoxLayout* vertical_layout = new QVBoxLayout(central);
+    ui->scrollArea_3->setWidget(central);
+    ui->scrollArea_3->setWidgetResizable(true);
+    fetch_reminders(*db,*ui,*vertical_layout);
 }
 
 
@@ -70,6 +87,14 @@ void MainWindow::on_exams_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(5);
+    QSqlDatabase *db = new  QSqlDatabase;
+    QWidget *central = new QWidget;
+    *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db->setDatabaseName("exams.sqlite");
+    QVBoxLayout* v1 = new QVBoxLayout(central);
+    ui->scrollArea_2->setWidget(central);
+    ui->scrollArea_2->setWidgetResizable(true);
+    write_exams(*db,*ui,*v1);
 }
 
 
@@ -149,6 +174,7 @@ void MainWindow::on_reminders_submit_clicked()
     description = ui->textEdit->toPlainText();
     qDebug()<<description;
     deadline = ui->dateEdit->date();
+    qDebug()<<deadline;
 //    dd1 = deadline.toString();
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->errorAdd->setText("Success: Added The Reminder...");
@@ -203,5 +229,69 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
             qDebug()<<"Error";
         }
     }
+}
+
+
+void MainWindow::on_comboBox_2_currentIndexChanged(int index)
+{
+    if(index == 1){
+        QComboBox* cb = ui->comboBox_3;
+        fetch_Physics(*cb);
+    }
+    else if(index == 2){
+        QComboBox* combobox = ui->comboBox_3;
+        fetch_Chemistry(*combobox);
+    }
+    else if(index == 3){
+        QComboBox* combobox = ui->comboBox_3;
+        fetch_Math(*combobox);
+    }
+    else if(index == 4){
+        QComboBox* combobox = ui->comboBox_3;
+        fetch_Programming(*combobox);
+    }
+    else if(index == 5){
+        QComboBox* combobox = ui->comboBox_3;
+        fetch_drawing(*combobox);
+    }
+    else if(index == 6){
+        QComboBox* combobox = ui->comboBox_3;
+        fetch_environment(*combobox);
+    }
+}
+
+
+void MainWindow::on_submitExam_clicked()
+{
+    QString sub;
+    QString code;
+    QDate deadline;
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db->setDatabaseName("exams.sqlite");
+    try{
+    sub = ui->comboBox_2->currentText();
+    qDebug()<<sub;
+    code = ui->comboBox_3->currentText();
+    qDebug()<<code;
+    deadline = ui->dateEdit->date();
+    qDebug()<<deadline;
+//    dd1 = deadline.toString();
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->errorAdd->setText("Success: Added The Exam...");
+    if(sub == "" || code == "") throw invalid_argument("Cannot Perform the tasks");
+    }
+    catch(invalid_argument& ex){
+        ui->stackedWidget_2->setCurrentIndex(0);
+        ui->errorAdd->setText("Error: Cannot add the Reminder... ");
+    }
+    add_exams(*db,sub,code,deadline);
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->groupBox->show();
+    ui->stackedWidget->setCurrentIndex(7);
 }
 
