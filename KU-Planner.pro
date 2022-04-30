@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    deleteDialog.cpp \
     eventsdialog.cpp \
     examCombo.cpp \
     main.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     sqlite.cpp
 
 HEADERS += \
+    deleteDialog.h \
     eventsdialog.h \
     examCombo.h \
     mainwindow.h \
     sqlite.h
 
 FORMS += \
+    deleteDialog.ui \
     eventsdialog.ui \
     mainwindow.ui
 

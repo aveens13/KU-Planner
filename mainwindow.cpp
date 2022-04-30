@@ -3,7 +3,6 @@
 #include "examCombo.h"
 #include<iostream>
 using namespace std;
-
 #include "ui_mainwindow.h"
 #include "eventsdialog.h"
 
@@ -293,5 +292,13 @@ void MainWindow::on_pushButton_clicked()
 {
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(7);
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    Dialog* deleteDialog = new Dialog(this);
+    deleteDialog->show();
+    deleteDialog->setWindowTitle("Delete Exam");
 }
 
