@@ -282,9 +282,6 @@ void write_exams(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout){
             qDebug()<<"Exam Subject: "<<title_print;
             sn_assignment +=1;
         }
-        QPushButton *refresh = new QPushButton("Refresh");
-        refresh->setStyleSheet("padding:15px 5px;border-radius:20px;font: 700 12pt;");
-        v_layout.addWidget(refresh);
     //    delete checkbox_done;
     //    delete refresh;
         db.close();
@@ -310,11 +307,16 @@ void fetch_reminders(QSqlDatabase& db,Ui::MainWindow& ui, QVBoxLayout& v_layout)
         QVBoxLayout* vertical_l = new QVBoxLayout(widget);
         QLabel* title = new QLabel();
         QLabel* description = new QLabel();
+//        QPushButton* delete_rem = new QPushButton("Delete");
+//        delete_rem->setMaximumWidth(50);
+//        delete_rem->setMinimumHeight(20);
+//        delete_rem->setStyleSheet("background-color:#ff7e61;border-radius:10px;hover:{background-color:#ff513a}");
         title->setText(databaseQuery->value(1).toString());
         title->setStyleSheet("font:12pt");
         description->setText(databaseQuery->value(2).toString());
         vertical_l->addWidget(title);
         vertical_l->addWidget(description);
+//        vertical_l->addWidget(delete_rem);
         v_layout.addWidget(widget);
         widget->setStyleSheet("background-color:#cfbbd4;border-radius:10px;");
         int print_id = databaseQuery->value(0).toInt();
