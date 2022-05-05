@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 //    run_database(*db);
     QApplication a(argc, argv);
     MainWindow w;
+//    w.showMaximized();
     w.showMaximized();
     return a.exec();
 }

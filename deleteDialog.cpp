@@ -49,8 +49,10 @@ void Dialog::on_comboBox_currentIndexChanged(int index)
     }
     while(dbq->next()){
         qDebug()<<dbq->value(0).toInt();
+        ui->comboBox_2->clear();
         ui->comboBox_2->addItem(dbq->value(0).toString());
     }
+    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 
