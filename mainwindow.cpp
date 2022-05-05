@@ -5,12 +5,25 @@
 using namespace std;
 #include "ui_mainwindow.h"
 #include "eventsdialog.h"
+#include <QDateTime>
+
+
+struct DayEvents {
+    std::vector<QString> assignments;
+    std::vector<QString> exams;
+};
+
+extern int totalAssignments;
+extern DayEvents selectedDay;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(myfunction()));
+    timer->start(1000);
     ui->groupBox->hide();
     mResourceDir = "../../Resources";
 }
@@ -20,9 +33,40 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::myfunction(){
+    QTime time = QTime::currentTime();
+    QDate date = QDate::currentDate();
+    QString date_text = date.toString();
+    QString time_text = time.toString();
+    ui->label_3->setText(date_text);
+    ui->label_9->setText(date_text);
+    ui->label_18->setText(date_text);
+    ui->label_15->setText(date_text);
+    ui->label_12->setText(date_text);
+    ui->label_6->setText(date_text);
+    ui->label_4->setText(time_text);
+    ui->label_7->setText(time_text);
+    ui->label_10->setText(time_text);
+    ui->label_13->setText(time_text);
+    ui->label_16->setText(time_text);
+    ui->label_19->setText(time_text);
+}
 void MainWindow::on_getStarted_clicked()
 {
 //    ui->label_3->setText(day);
+    //For showing assignments
+    QSqlDatabase *db1 = new  QSqlDatabase;
+    *db1 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db1->setDatabaseName("assignment.sqlite");
+    QDate date = QDate::currentDate();
+    return_assignment(*db1,date);
+    std::vector<QString> *current = &selectedDay.assignments;;
+    QString txt;
+    for (auto& str : *current)
+        txt.append(str + "\n");
+    ui->assignmentLabel->setText(txt);
+    if(totalAssignments == 0) ui->label_38->setText("No Assignments Remaining");
+    ui->label_38->setText("Total Assignments Remaining: " + QString::number(totalAssignments));
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
     QSqlDatabase *db = new  QSqlDatabase;
@@ -47,6 +91,17 @@ void MainWindow::on_addTask_clicked()
 
 void MainWindow::on_dashBoard_clicked()
 {
+    //For showing assignments
+    QSqlDatabase *db1 = new  QSqlDatabase;
+    *db1 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db1->setDatabaseName("assignment.sqlite");
+    QDate date = QDate::currentDate();
+    return_assignment(*db1,date);
+    std::vector<QString> *current = &selectedDay.assignments;;
+    QString txt;
+    for (auto& str : *current)
+        txt.append(str + "\n");
+    ui->assignmentLabel->setText(txt);
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
     QSqlDatabase *db = new  QSqlDatabase;
@@ -57,6 +112,19 @@ void MainWindow::on_dashBoard_clicked()
     ui->scrollArea_3->setWidget(central);
     ui->scrollArea_3->setWidgetResizable(true);
     fetch_reminders(*db,*ui,*vertical_layout);
+
+    //For showing the vector image
+
+    try {
+        qDebug()<<QDir::currentPath();
+        QPixmap img(QDir::currentPath() + "/Resources/dahboard.png");
+        QGraphicsScene *scene = new QGraphicsScene(this);
+        ui->graphicsView_2->setScene(scene);
+        ui->graphicsView_2->scene()->addPixmap(img);
+        if(!ui->graphicsView_2->scene()) throw "err";
+    }  catch (const char* err ) {
+        qDebug()<<"Error";
+    }
 }
 
 
@@ -125,6 +193,30 @@ void MainWindow::on_continueButton_clicked()
 
 void MainWindow::on_calendarWidget_clicked(const QDate &date)
 {
+    // Fetch data from database first - Assignment
+    QSqlDatabase *db = new  QSqlDatabase;
+    *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db->setDatabaseName("assignment.sqlite");
+    qDebug()<<date;
+    return_assignment(*db,date);
+
+    // Fetch data from database first - Exams
+    QSqlDatabase *db1 = new  QSqlDatabase;
+    *db1 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db1->setDatabaseName("exams.sqlite");
+    qDebug()<<date;
+    return_exams(*db1,date);
+
+    qDebug() << "2nd clear";
+
+    // Fetch data from database first - Reminders
+    QSqlDatabase *db2 = new  QSqlDatabase;
+    *db2 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db2->setDatabaseName("reminders1.sqlite");
+    qDebug()<<date;
+    return_reminders(*db2,date);
+
+    // Create dialog
     eventdialog = new eventsdialog(this);
     eventdialog->show();
     eventdialog->setWindowTitle(date.toString());
@@ -135,7 +227,7 @@ void MainWindow::on_submitButton_clicked()
 {
      QString title;
      QString description,dd1;
-     QDateTime deadline;
+     QDate deadline;
     QSqlDatabase *db = new  QSqlDatabase;
     *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
     db->setDatabaseName("assignment.sqlite");
@@ -144,9 +236,7 @@ void MainWindow::on_submitButton_clicked()
     qDebug()<<title;
     description = ui->lineEdit_2->text();
     qDebug()<<description;
-    deadline = ui->dateTimeEdit->dateTime();
-    qDebug()<<deadline.toString();
-    dd1 = deadline.toString();
+    deadline = ui->dateEdit_3->date();
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->errorAdd->setText("Success: Added The Assignment...");
     if(title == "" || description == "") throw invalid_argument("Cannot Perform the tasks");
@@ -156,13 +246,13 @@ void MainWindow::on_submitButton_clicked()
         ui->errorAdd->setText("Error: Cannot add the Tasks... ");
     }
     run_assignment_database(*db);
-    assignment_database(*db,title,description,dd1);
+    assignment_database(*db,title,description,deadline);
 }
 
 void MainWindow::on_reminders_submit_clicked()
 {
     QString title;
-    QString description,dd1;
+    QString description;
     QDate deadline;
     QSqlDatabase *db = new  QSqlDatabase;
     *db = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
@@ -273,7 +363,7 @@ void MainWindow::on_submitExam_clicked()
     qDebug()<<sub;
     code = ui->comboBox_3->currentText();
     qDebug()<<code;
-    deadline = ui->dateEdit->date();
+    deadline = ui->dateEdit_2->date();
     qDebug()<<deadline;
 //    dd1 = deadline.toString();
     ui->stackedWidget_2->setCurrentIndex(0);

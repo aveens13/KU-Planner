@@ -58,12 +58,14 @@ private slots:
 
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
+    void myfunction();
 
 private:
     Ui::MainWindow *ui;
     eventsdialog *eventdialog;
     QDate *date;
     QString day;
+    QTimer *timer;
     QString mResourceDir;
 
 };

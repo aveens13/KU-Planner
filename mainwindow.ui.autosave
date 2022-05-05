@@ -246,7 +246,7 @@ color:black;</string>
             <item>
              <widget class="QTextBrowser" name="textBrowser">
               <property name="styleSheet">
-               <string notr="true">font: 600 9pt &quot;Yu Gothic UI Semibold&quot;;
+               <string notr="true">font: 9pt &quot;MS Reference Sans Serif&quot;;
 border:none;
 background:transparent;</string>
               </property>
@@ -254,8 +254,8 @@ background:transparent;</string>
                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Yu Gothic UI Semibold'; font-size:9pt; font-weight:600; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Monotype Corsiva'; font-size:16pt; font-weight:400;&quot;&gt;KU Planner helps you organize you assignments, exams in a productive manner. We have a built in Calendar to keep you up to date with your assignments and tasks. You can even add a reminder so that you will know what are your remaining task in the Dashboard section.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Reference Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Monotype Corsiva'; font-size:16pt;&quot;&gt;KU Planner helps you organize you assignments, exams in a productive manner. We have a built in Calendar to keep you up to date with your assignments and tasks. You can even add a reminder so that you will know what are your remaining task in the Dashboard section.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>

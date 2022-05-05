@@ -20,7 +20,7 @@ void run_assignment_database(QSqlDatabase& db){
     delete databaseQuery;
 }
 
-void assignment_database(QSqlDatabase& db,QString title, QString desc, QString deadline){
+void assignment_database(QSqlDatabase& db,QString title, QString desc, QDate deadline){
 
     try {
         bool check = db.isOpen();
@@ -51,12 +51,13 @@ void assignment_database(QSqlDatabase& db,QString title, QString desc, QString d
 //        QSqlQuery *databaseQuery = new QSqlQuery(db);
         databaseQuery->prepare("INSERT INTO Assignment(id,title,description,deadline)""VALUES (:id,:title,:description,:deadline)");
         databaseQuery->bindValue(":id",id);
+        QDate Date = QDate::fromString(deadline.toString(),"yyyy-MM-dd");
         qDebug()<<title;
         qDebug()<<desc;
-        qDebug()<<deadline;
+        qDebug()<<Date;
         databaseQuery->bindValue(":title",title);
         databaseQuery->bindValue(":description",desc);
-        databaseQuery->bindValue(":deadline",deadline);
+        databaseQuery->bindValue(":deadline",deadline.toString());
         if(!databaseQuery->exec()){
         throw "fas";
         }
@@ -75,7 +76,6 @@ void assignment_database(QSqlDatabase& db,QString title, QString desc, QString d
     delete databaseQuery;
     db.close();
 }
-
 void fetch_assignment(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout){
     if(!db.open()){
             qDebug("Unable to connect...");
@@ -112,6 +112,8 @@ void fetch_assignment(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout)
             h_layout->addWidget(label_deadline_assignment);
             h_layout->addWidget(checkbox_done);
             v_layout.addWidget(widget_assignment);
+            QDate Date = QDate::fromString(databaseQuery->value(3).toString(),"yyyy-MM-dd");
+            qDebug()<<Date;
             int print_id = databaseQuery->value(0).toInt();
             QString title_print = databaseQuery->value(1).toString();
             qDebug()<<"ID of Assignment: "<<print_id;
@@ -134,7 +136,7 @@ void add_reminders(QSqlDatabase& db,QString title, QString description, QDate da
         qDebug("Connected Sunccessfully to the Reminders database!!!");
     }
     QSqlQuery *databaseq = new QSqlQuery(db);
-    if(!databaseq->exec("CREATE TABLE IF NOT EXISTS Reminders (id int not null primary key, title text, description text, deadline date)")){
+    if(!databaseq->exec("CREATE TABLE IF NOT EXISTS Reminders (id int not null primary key, title text, description text, deadline text)")){
         qDebug("Cannot execute the query..");
     }
     else{
@@ -160,7 +162,7 @@ void add_reminders(QSqlDatabase& db,QString title, QString description, QDate da
         qDebug()<<date;
         databaseQuery->bindValue(":title",title);
         databaseQuery->bindValue(":description",description);
-        databaseQuery->bindValue(":deadline",date);
+        databaseQuery->bindValue(":deadline",date.toString());
         if(!databaseQuery->exec()){
         throw "fas";
         }
@@ -173,7 +175,7 @@ void add_reminders(QSqlDatabase& db,QString title, QString description, QDate da
     while(databaseQuery->next()){
         int print_id = databaseQuery->value(0).toInt();
         QString title_print = databaseQuery->value(1).toString();
-        QDate date = databaseQuery->value(2).toDate();
+        QDate date = QDate::fromString(databaseQuery->value(3).toString(),"yyyy-MM-dd");
 //        QString date_s = date.toString();
         qDebug()<<"ID of Reminder: "<<print_id;
         qDebug()<<"Reminder Title: "<<title_print;
@@ -191,7 +193,7 @@ void add_exams(QSqlDatabase& db,QString sub, QString code, QDate date){
         qDebug("Connected Sunccessfully to the Exams database!!!");
     }
     QSqlQuery *databaseq = new QSqlQuery(db);
-    if(!databaseq->exec("CREATE TABLE IF NOT EXISTS Exams (id int not null primary key, sub text, code text, date_ date)")){
+    if(!databaseq->exec("CREATE TABLE IF NOT EXISTS Exams (id int not null primary key, sub text, code text, deadline text)")){
         qDebug("Cannot execute the query..");
     }
     else{
@@ -210,14 +212,14 @@ void add_exams(QSqlDatabase& db,QString sub, QString code, QDate date){
     qDebug()<<"New Key: "<<id;
     try{
 //        QSqlQuery *databaseQuery = new QSqlQuery(db);
-        databaseQuery->prepare("INSERT INTO Exams(id,sub,code,date_)""VALUES (:id,:sub,:code,:date_)");
+        databaseQuery->prepare("INSERT INTO Exams(id,sub,code,deadline)""VALUES (:id,:sub,:code,:deadline)");
         databaseQuery->bindValue(":id",id);
         qDebug()<<sub;
         qDebug()<<code;
         qDebug()<<date;
         databaseQuery->bindValue(":sub",sub);
         databaseQuery->bindValue(":code",code);
-        databaseQuery->bindValue(":date_",date);
+        databaseQuery->bindValue(":deadline",date.toString());
         if(!databaseQuery->exec()){
         throw "fas";
         }
@@ -270,12 +272,15 @@ void write_exams(QSqlDatabase& db,Ui::MainWindow& ui,QVBoxLayout& v_layout){
             label_title_assignment->setText(databaseQuery->value(1).toString());
             label_description_assignment->setText(databaseQuery->value(2).toString());
             label_deadline_assignment->setText(databaseQuery->value(3).toString());
+
             h_layout->addWidget(sn);
             h_layout->addWidget(label_title_assignment);
             h_layout->addWidget(label_description_assignment);
             h_layout->addWidget(label_deadline_assignment);
             h_layout->addWidget(done);
             v_layout.addWidget(widget_assignment);
+            QDate Date = QDate::fromString(databaseQuery->value(3).toString(),"yyyy-MM-dd");
+            qDebug()<<Date;
             int print_id = databaseQuery->value(0).toInt();
             QString title_print = databaseQuery->value(1).toString();
             qDebug()<<"ID of Exam: "<<print_id;
@@ -325,3 +330,101 @@ void fetch_reminders(QSqlDatabase& db,Ui::MainWindow& ui, QVBoxLayout& v_layout)
         qDebug()<<"Reminder Title: "<<title_print;
     }
 }
+
+
+struct DayEvents {
+    std::vector<QString> assignments;
+    std::vector<QString> reminders;
+    std::vector<QString> exams;
+};
+
+DayEvents selectedDay;
+int totalAssignments = 0;
+
+void return_assignment(QSqlDatabase& db,QDate date){
+    selectedDay.assignments.clear();
+
+    if(!db.open()){
+            qDebug("Unable to connect...");
+        }
+    else{
+            qDebug("Connected Sunccessfully");
+        }
+    QSqlQuery *databaseQuery = new QSqlQuery(db);
+    try{
+        qDebug()<<date.toString();
+        if(!databaseQuery->exec("SELECT title FROM Assignment WHERE deadline='"+date.toString()+"'")) throw "Cannot Execute";
+    }
+    catch(const char* ex){
+        qDebug()<<ex;
+        return;
+    }
+    while(databaseQuery->next()){
+        qDebug()<<databaseQuery->value(0).toString();
+        selectedDay.assignments.push_back(databaseQuery->value(0).toString());
+    }
+    QSqlQuery *databaseQuery1 = new QSqlQuery(db);
+    try{
+        if(!databaseQuery1->exec("SELECT * FROM Assignment")) throw "Cannot Execute";
+    }
+    catch(const char* ex){
+        qDebug()<<ex;
+        return;
+    }
+    while(databaseQuery1->next()){
+        totalAssignments +=1;
+    }
+}
+
+void return_reminders(QSqlDatabase& db,QDate date){
+    selectedDay.reminders.clear();
+
+    if(!db.open()){
+            qDebug("Unable to connect...");
+        }
+    else{
+            qDebug("Connected Sunccessfully");
+        }
+    QSqlQuery *databaseQuery = new QSqlQuery(db);
+    try{
+        qDebug()<<date.toString();
+        if(!databaseQuery->exec("SELECT title FROM Reminders WHERE deadline='"+date.toString()+"'")) throw "Cannot Execute";
+    }
+    catch(const char* ex){
+        qDebug()<<ex;
+        return;
+    }
+    while(databaseQuery->next()){
+        qDebug()<<databaseQuery->value(0).toString();
+        selectedDay.reminders.push_back(databaseQuery->value(0).toString());
+    }
+}
+
+void return_exams(QSqlDatabase& db,QDate date){
+    selectedDay.exams.clear();
+
+    if(!db.open()){
+            qDebug("Unable to connect...");
+        }
+    else{
+            qDebug("Connected Sunccessfully");
+        }
+    QSqlQuery *databaseQuery = new QSqlQuery(db);
+    try{
+        qDebug()<<date.toString();
+        if(!databaseQuery->exec("SELECT sub FROM Exams WHERE deadline='"+date.toString()+"'")) throw "Cannot Execute";
+    }
+    catch(const char* ex){
+        qDebug()<<ex;
+        return;
+    }
+    while(databaseQuery->next()){
+        qDebug()<<databaseQuery->value(0).toString();
+        selectedDay.exams.push_back(databaseQuery->value(0).toString());
+    }
+}
+
+//void setText(Ui::eventsdialog& ui){
+//    qDebug()<<assignment_title[0];
+//    ui.eventlabel->setText(assignment_title[0]);
+//}
