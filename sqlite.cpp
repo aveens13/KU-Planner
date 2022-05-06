@@ -340,6 +340,7 @@ struct DayEvents {
 
 DayEvents selectedDay;
 int totalAssignments = 0;
+int totalexams = 0;
 
 void return_assignment(QSqlDatabase& db,QDate date){
     selectedDay.assignments.clear();
@@ -421,6 +422,17 @@ void return_exams(QSqlDatabase& db,QDate date){
     while(databaseQuery->next()){
         qDebug()<<databaseQuery->value(0).toString();
         selectedDay.exams.push_back(databaseQuery->value(0).toString());
+    }
+    QSqlQuery *databaseQuery1 = new QSqlQuery(db);
+    try{
+        if(!databaseQuery1->exec("SELECT * FROM Exams")) throw "Cannot Execute";
+    }
+    catch(const char* ex){
+        qDebug()<<ex;
+        return;
+    }
+    while(databaseQuery1->next()){
+        totalexams +=1;
     }
 }
 

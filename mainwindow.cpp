@@ -10,10 +10,12 @@ using namespace std;
 
 struct DayEvents {
     std::vector<QString> assignments;
+    std::vector<QString> reminders;
     std::vector<QString> exams;
 };
 
 extern int totalAssignments;
+extern int totalexams;
 extern DayEvents selectedDay;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -60,13 +62,27 @@ void MainWindow::on_getStarted_clicked()
     db1->setDatabaseName("assignment.sqlite");
     QDate date = QDate::currentDate();
     return_assignment(*db1,date);
-    std::vector<QString> *current = &selectedDay.assignments;;
+    std::vector<QString> *current = &selectedDay.assignments;
     QString txt;
     for (auto& str : *current)
         txt.append(str + "\n");
     ui->assignmentLabel->setText(txt);
     if(totalAssignments == 0) ui->label_38->setText("No Assignments Remaining");
     ui->label_38->setText("Total Assignments Remaining: " + QString::number(totalAssignments));
+
+    //For Showing exams
+    QSqlDatabase *db2 = new  QSqlDatabase;
+    *db2 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db2->setDatabaseName("exams.sqlite");
+    QDate date1 = QDate::currentDate();
+    return_exams(*db2,date1);
+    std::vector<QString> *current1 = &selectedDay.exams;
+    QString txt1;
+    for (auto& str : *current1)
+        txt1.append(str + "\n");
+    ui->examlabel->setText(txt1);
+    if(totalexams == 0) ui->label_40->setText("No Exams Remaining");
+    ui->label_40->setText("Total Exams Remaining: " + QString::number(totalexams));
     ui->groupBox->show();
     ui->stackedWidget->setCurrentIndex(2);
     QSqlDatabase *db = new  QSqlDatabase;
@@ -97,7 +113,7 @@ void MainWindow::on_dashBoard_clicked()
     db1->setDatabaseName("assignment.sqlite");
     QDate date = QDate::currentDate();
     return_assignment(*db1,date);
-    std::vector<QString> *current = &selectedDay.assignments;;
+    std::vector<QString> *current = &selectedDay.assignments;
     QString txt;
     for (auto& str : *current)
         txt.append(str + "\n");
@@ -113,18 +129,21 @@ void MainWindow::on_dashBoard_clicked()
     ui->scrollArea_3->setWidgetResizable(true);
     fetch_reminders(*db,*ui,*vertical_layout);
 
-    //For showing the vector image
+    //For Showing exams
+    QSqlDatabase *db2 = new  QSqlDatabase;
+    *db2 = QSqlDatabase::addDatabase("QSQLITE"); // adding the sqlite engine
+    db2->setDatabaseName("exams.sqlite");
+    QDate date1 = QDate::currentDate();
+    return_exams(*db2,date1);
+    std::vector<QString> *current1 = &selectedDay.exams;
+    QString txt1;
+    for (auto& str : *current1)
+        txt1.append(str + "\n");
+    qDebug()<<txt1+"done";
+    ui->examlabel->setText(txt1);
+    if(totalexams == 0) ui->label_40->setText("No Exams Remaining");
+    ui->label_40->setText("Total Exams Remaining: " + QString::number(totalexams));
 
-    try {
-        qDebug()<<QDir::currentPath();
-        QPixmap img(QDir::currentPath() + "/Resources/dahboard.png");
-        QGraphicsScene *scene = new QGraphicsScene(this);
-        ui->graphicsView_2->setScene(scene);
-        ui->graphicsView_2->scene()->addPixmap(img);
-        if(!ui->graphicsView_2->scene()) throw "err";
-    }  catch (const char* err ) {
-        qDebug()<<"Error";
-    }
 }
 
 
