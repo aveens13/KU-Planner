@@ -1,5 +1,2 @@
 # KU-Planner
-Directions on using git branching in this project
-
-- It is good to make a branch of their own in which they will be working so there will not be errors while pushing and pullling and codes can be managed throughly.
-- Command: <text>git branch <branch_name> and git checkout <branch_name> or single line command is git checkout -b <branch_name> </text>
+This repository contains our second semester project on KU Planner. In this project we used C++ and QT as a UI framework for the application. By the help of KU Planner an individual can boost their productivity and also can remnd them on time about the assignments, exams. With the calendar feature included on the application, an individual can see the listed things on the certain date and plan accordngly.
